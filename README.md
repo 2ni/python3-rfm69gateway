@@ -5,7 +5,8 @@ and sending them to a Home Assistant instance
 ### Installation
 ```
 git clone git@github.com:2ni/python3-rfm69gateway.git
-git submodule update --recursive --remote
+git submodule update --init --recursive
+git submodule update --recursive --remote  # to update submodules
 sudo apt install python3-venv python3-rpi.gpio
 python3 -m venv .venv
 source .venv/bin/activate
