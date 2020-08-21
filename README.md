@@ -2,6 +2,8 @@
 Gateway running on a Raspberry Pi 4 receiving RFM69 packets, processing them
 and sending them to a Home Assistant instance
 
+This gateway works in conjunction with my sensor [forgetmenot](https://github.com/2ni/forgetmenot)
+
 ### Installation
 ```
 git clone git@github.com:2ni/python3-rfm69gateway.git
