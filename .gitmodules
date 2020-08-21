@@ -1,0 +1,3 @@
+[submodule "pyrfm69"]
+	path = pyrfm69
+	url = git@github.com:2ni/RFM69.git
