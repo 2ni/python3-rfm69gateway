@@ -5,6 +5,7 @@ and sending them to a Home Assistant instance
 This gateway works in conjunction with my sensor [forgetmenot](https://github.com/2ni/forgetmenot)
 
 ### Installation
+call ./setup.sh or manually:
 ```
 git clone git@github.com:2ni/python3-rfm69gateway.git
 git submodule update --init --recursive
