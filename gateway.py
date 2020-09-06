@@ -1,3 +1,5 @@
+# -*- coding: utf-8 -*-
+
 from pyrfm69 import RFM69
 from pyrfm69.RFM69registers import RF69_868MHZ, REG_VERSION
 import time
@@ -45,9 +47,23 @@ try:
             radio.sendACK(sender, dt.now().strftime("%Y-%m-%d %H:%M:%S"))  # return the current timestamp to the sender
 
         # process received data
-        print("data from 0x{sender:2x} [RSSI: {rssi}]".format(sender=sender, rssi=rssi))
+        print("{timestamp}: 0x{sender:2x} [RSSI: {rssi}]: ".format(
+            timestamp=dt.now().strftime('%H:%M:%S.%f')[:-5],
+            sender=sender,
+            rssi=rssi),
+            end=""
+        )
         for k, v in data.items():
-            print("{k}: {v}".format(k=k, v=v))
+            unit = ""
+            if k.startswith("t"):
+                v /= 10
+                unit = "°C"
+            elif k == "vc":
+                v /= 100
+                unit = "v"
+            print("{k}={v}{unit}".format(k=k, v=v, unit=unit), end=" ")
+
+        print("")
 
 except KeyboardInterrupt:
     radio.shutdown()
